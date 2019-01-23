@@ -17,3 +17,9 @@
 
 # iNEXT 2.0.17
 - Modify Error in duplicated levels/labels (issue #25).
+
+# iNEXT 2.0.18
+- Update ggiNEXT.R (Fix legend problem of ggiNEXT).
+
+# iNEXT 2.0.19
+- Modified `Dqhat.Ind` and `Dqhat.Sam` to make them more efficient.
