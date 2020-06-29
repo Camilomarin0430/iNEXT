@@ -1,5 +1,18 @@
 language: r
 sudo: false
 cache: packages
-before_install:
-  - tlmgr install index
+r_check_args: --as-cran
+matrix:
+  include:
+    - os: linux
+      r: release
+    - os: osx
+      r: release
+      r_check_args: --no-build-vignettes --no-codoc --no-manual --ignore-vignettes
+    - os: linux
+      r: devel
+      env:
+        - R_KEEP_PKG_SOURCE=yes
+        - _R_CLASS_MATRIX_ARRAY_=true
+        - _R_CHECK_LENGTH_1_CONDITION_="package:_R_CHECK_PACKAGE_NAME_,verbose"
+        

@@ -9,9 +9,9 @@ iNEXT(x, q = 0, datatype = "abundance", size = NULL,
   nboot = 50)
 }
 \arguments{
-\item{x}{a matrix, data.frame (species by sites), or list of species abundances or incidence frequencies. If \code{datatype = "incidence"}, then the first entry of the input data must be total number of sampling units in each column or list.}
+\item{x}{a matrix, data.frame (species by sites), or list of species abundances or incidence frequencies. If \code{datatype = "incidence_freq"}, then the first entry of the input data must be total number of sampling units in each column or list.}
 
-\item{q}{a numeric value specifying the diversity order of Hill number .}
+\item{q}{a numerical vector of the order of Hill number.}
 
 \item{datatype}{data type of input data: individual-based abundance data (\code{datatype = "abundance"}),
 sampling-unit-based incidence frequencies data (\code{datatype = "incidence_freq"}) or species by sampling-units incidence matrix (\code{datatype = "incidence_raw"}).}
@@ -54,10 +54,11 @@ data(bird)
 out2 <- iNEXT(bird, q=0, datatype="abundance")
 ggiNEXT(out2)
 
+\dontrun{
 ## example for incidence frequencies based data (list of data.frame)
 data(ant)
 t <- round(seq(10, 500, length.out=20))
 out3 <- iNEXT(ant$h500m, q=1, datatype="incidence_freq", size=t, se=FALSE)
 out3$iNextEst
-
+}
 }
